@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>32ª Semana do Contador de Cianorte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER PADRONIZADO -->
+<header>
+  <div class="container">
+    <h1>32ª SEMANA DO CONTADOR DE CIANORTE</h1>
+    <p class="sub">Semana do Contador — Departamento de Ciências Contábeis / UEM</p>
+    <span class="issn">ISBN</span>
+    <div class="datas-topo">
+      <div><div class="rotulo">Evento</div><div class="valor">03 a 06 · nov · 2026</div></div>
+      <div><div class="rotulo">Local</div><div class="valor">UEM · Cianorte-PR</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV PADRONIZADA -->
+<nav aria-label="Navegação">
+  <div class="container">
+    <a href="index.html">Página Inicial</a>
+    <a href="submeter.html">Submeter trabalho</a>
+    <a href="registro.html">Inscrição</a>
+  </div>
+</nav>
+
+<section id="datas">
+  <div class="container">
+    <h2>Datas importantes</h2>
+    <p class="h2-sub">Calendário oficial da 32ª Semana do Contador de Cianorte.</p>
+    <ul class="cronograma">
+      <li><span class="data-mono">28/09/2026</span><span class="etapa">Início das submissões e das inscrições do Lote 01 (R$ 65,00)</span></li>
+      <li class="destaque"><span class="data-mono">12/10/2026</span><span class="etapa">Data-limite para a inscrição do Lote 01</span></li>
+      <li><span class="data-mono">13/10/2026</span><span class="etapa">Início das inscrições do Lote 02 (R$ 80,00)</span></li>
+      <li class="destaque"><span class="data-mono">18/10/2026</span><span class="etapa">Data-limite para submissão de trabalhos</span></li>
+      <li><span class="data-mono">23/10/2026</span><span class="etapa">Divulgação dos resultados</span></li>
+      <li class="destaque"><span class="data-mono">26/10/2026</span><span class="etapa">Data limite para inscrição do Lote 02</span></li>
+      <li class="destaque"><span class="data-mono">03–06/11/2026</span><span class="etapa">Realização da 32ª Semana do Contador de Cianorte</span></li>
+    </ul>
+  </div>
+</section>
+<section id="programacao">
+  <div class="container">
+    <h2>Programação</h2>
+    <p>Programação oficial da 32ª Semana do Contador de Cianorte.</p>
+    <ul class="cronograma">
+
+    </ul>
+  </div>
+</section>
+
+<!-- SEÇÕES INFORMATIVAS (Categorias, Áreas, Normas) Omitidas aqui por brevidade, mas devem ser mantidas conforme o original -->
+
+<section id="status-submissao">
+  <div class="container">
+    <h2>Consultar status da submissão (Trabalhos)</h2>
+    <div class="card">
+      <label for="input-id-sub">ID do trabalho</label>
+      <input type="text" id="input-id-sub" class="mono" placeholder="Ex: SUB-123">
+      <button type="button" class="botao" onclick="consultarStatusSubmissao()">Consultar</button>
+      <div id="resultado-status-sub"></div>
+    </div>
+  </div>
+</section>
+
+<section id="status-inscricao">
+  <div class="container">
+    <h2>Consultar status da inscrição (Participantes)</h2>
+    <div class="card">
+      <label for="input-id-reg">Código da inscrição</label>
+      <input type="text" id="input-id-reg" class="mono" placeholder="Ex: REG-123">
+      <button type="button" class="botao" onclick="consultarStatusInscricao()">Consultar</button>
+      <div id="resultado-status-reg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER PADRONIZADO -->
+<footer>
+  <div class="container">
+    <strong>32ª Semana do Contador de Cianorte — DCC/UEM</strong><br>
+    Universidade Estadual de Maringá · Cianorte, Paraná<br>
+    Dúvidas: semanadocontador@uem.br    
+  </div>
+</footer>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_M1IVFG1Yynvi_aUIpSMlc3blMVT0K0QPFCjHeTNdpd_vogOQeO8iHFNmOr55RuN-8g/exec";
+
+async function consultarStatusSubmissao() {
+  const id = document.getElementById("input-id-sub").value.trim();
+  const out = document.getElementById("resultado-status-sub");
+  if (!id) { out.innerHTML = '<div class="msg-erro">Informe o ID.</div>'; return; }
+  out.innerHTML = '<p>Consultando...</p>';
+  try {
+    const resp = await fetch(SCRIPT_URL + "?action=status&id=" + encodeURIComponent(id));
+    const d = await resp.json();
+    if (!d.ok) { out.innerHTML = '<div class="msg-erro">' + d.erro + '</div>'; return; }
+    out.innerHTML = `<div class="status-caixa"><strong>${d.id}</strong> — ${d.titulo}<br>Status: <strong>${d.status}</strong></div>`;
+  } catch (e) { out.innerHTML = '<div class="msg-erro">Erro na consulta.</div>'; }
+}
+
+async function consultarStatusInscricao() {
+  const id = document.getElementById("input-id-reg").value.trim();
+  const out = document.getElementById("resultado-status-reg");
+  if (!id) { out.innerHTML = '<div class="msg-erro">Informe o Código.</div>'; return; }
+  out.innerHTML = '<p>Consultando...</p>';
+  try {
+    const resp = await fetch(SCRIPT_URL + "?action=status_registro&id=" + encodeURIComponent(id));
+    const d = await resp.json();
+    if (!d.ok) { out.innerHTML = '<div class="msg-erro">' + d.erro + '</div>'; return; }
+    out.innerHTML = `<div class="status-caixa">Código: <strong>${d.id}</strong><br>Nome: ${d.nome}<br>Status: <strong>${d.status}</strong></div>`;
+  } catch (e) { out.innerHTML = '<div class="msg-erro">Erro na consulta.</div>'; }
+}
+</script>
+</body>
+</html>

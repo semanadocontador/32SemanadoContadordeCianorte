@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscrição - 32ª Semana do Contador de Cianorte</title>
+  <!-- Manter as mesmas tags CSS de index_2.html aqui -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!--- <style>
+    :root {
+      --tinta: #123B5D;
+      --tinta-claro: #2A3270;
+      --papel: #FBFAF7;
+      --grafite: #31373D;
+      --cinza: #6B7280;
+      --linha: #DDD8CE;
+      --ouro: #CD0862;
+      --ouro-claro: #FFF8DC;
+      --verde: #2F7D4F;
+      --vermelho: #B3402E;
+      --branco: #FFFFFF;
+      --ciano: #3EC6D0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--papel);
+      color: var(--grafite);
+      line-height: 1.6;
+      font-size: 16px
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'IBM Plex Serif', serif;
+      color: var(--tinta)
+    }
+
+    .mono {
+      font-family: 'IBM Plex Mono', monospace
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    /* ---------- CABEÇALHO PADRONIZADO ---------- */
+    header {
+      background: var(--tinta);
+      color: var(--branco);
+      padding: 64px 0 56px;
+      position: relative;
+      overflow: hidden
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 5px;
+      background: var(--ouro)
+    }
+
+    header h1 {
+      color: var(--branco);
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.15;
+      font-weight: 700;
+      max-width: 720px
+    }
+
+    header .sub {
+      margin-top: 12px;
+      font-size: 17px;
+      color: #C9D4E2;
+      max-width: 640px
+    }
+
+    .issn {
+      display: inline-block;
+      margin-top: 16px;
+      border: 2px solid var(--ouro);
+      color: var(--ouro);
+      padding: 4px 14px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      letter-spacing: .08em;
+      border-radius: 4px
+    }
+
+    .datas-topo {
+      margin-top: 28px;
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap
+    }
+
+    .datas-topo div {
+      border-left: 3px solid var(--ouro);
+      padding-left: 12px
+    }
+
+    .datas-topo .rotulo {
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #9DB0C6
+    }
+
+    .datas-topo .valor {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--branco)
+    }
+
+    /* ---------- NAVEGAÇÃO PADRONIZADA ---------- */
+    nav {
+      background: var(--branco);
+      border-bottom: 1px solid var(--linha);
+      position: sticky;
+      top: 0;
+      z-index: 50
+    }
+
+    nav .container {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto
+    }
+
+    nav a {
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--grafite);
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--tinta);
+      border-bottom-color: var(--ouro);
+      outline: none
+    }
+
+    /* ---------- SEÇÕES ---------- */
+    section {
+      padding: 56px 0
+    }
+
+    section+section {
+      border-top: 1px solid var(--linha)
+    }
+
+    h2 {
+      font-size: 27px;
+      margin-bottom: 8px
+    }
+
+    .h2-sub {
+      color: var(--cinza);
+      margin-bottom: 28px;
+      max-width: 640px
+    }
+
+    /* ---------- CATEGORIAS ---------- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      max-width: 640px
+    }
+
+    .cat-card {
+      border: 2px solid var(--ouro);
+      border-radius: 8px;
+      padding: 18px
+    }
+
+    .cat-card h3 {
+      color: var(--ouro);
+      font-size: 18px;
+      margin-bottom: 6px
+    }
+
+    .cat-card p {
+      font-size: 14px;
+      color: var(--cinza)
+    }
+
+    /* ---------- ÁREAS TEMÁTICAS ---------- */
+    .areas-list {
+      list-style: none;
+      max-width: 640px
+    }
+
+    .areas-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--linha);
+      display: flex;
+      gap: 12px;
+      align-items: baseline
+    }
+
+    .areas-list .num {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ouro);
+      min-width: 32px
+    }
+
+    /* ---------- FORMULÁRIOS ---------- */
+    .card {
+      background: var(--branco);
+      border: 1px solid var(--linha);
+      border-radius: 8px;
+      padding: 32px;
+      max-width: 720px
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--tinta);
+      margin: 18px 0 6px
+    }
+
+    input[type=text],
+    input[type=email],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--linha);
+      border-radius: 6px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      background: var(--papel);
+      color: var(--grafite)
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid var(--tinta-claro);
+      outline-offset: 1px;
+      border-color: var(--tinta-claro)
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical
+    }
+
+    .hint {
+      font-size: 13px;
+      color: var(--cinza);
+      margin-top: 4px
+    }
+
+    .autor-bloco {
+      border: 1px dashed var(--linha);
+      border-radius: 6px;
+      padding: 14px 16px 18px;
+      margin-top: 10px;
+      position: relative
+    }
+
+    .autor-bloco .tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--ouro);
+      text-transform: uppercase;
+      letter-spacing: .08em
+    }
+
+    .remover-autor {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: none;
+      border: none;
+      color: var(--vermelho);
+      cursor: pointer;
+      font-size: 13px;
+      font-family: inherit
+    }
+
+    .botao {
+      display: inline-block;
+      background: var(--tinta);
+      color: var(--branco);
+      border: none;
+      border-radius: 6px;
+      padding: 13px 26px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'IBM Plex Sans', sans-serif;
+      cursor: pointer;
+      margin-top: 24px
+    }
+
+    .botao:hover {
+      background: var(--tinta-claro)
+    }
+
+    .botao:focus-visible {
+      outline: 3px solid var(--ouro);
+      outline-offset: 2px
+    }
+
+    .botao[disabled] {
+      opacity: .55;
+      cursor: wait
+    }
+
+    .botao-sec {
+      background: none;
+      border: 1px solid var(--tinta);
+      color: var(--tinta);
+      border-radius: 6px;
+      padding: 9px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 12px
+    }
+
+    .botao-sec:hover {
+      background: var(--ouro-claro)
+    }
+
+    .msg-ok {
+      background: #E8F3EC;
+      border-left: 3px solid var(--verde);
+      padding: 16px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 20px
+    }
+
+    .msg-erro {
+      background: #FBEAE6;
+      border-left: 3px solid var(--vermelho);
+      padding: 16px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 20px;
+      font-size: 14px
+    }
+
+    .msg-ok .id {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--tinta);
+      display: block;
+      margin: 6px 0
+    }
+
+    .check-linha {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 18px;
+      font-size: 14px
+    }
+
+    .check-linha input {
+      margin-top: 4px
+    }
+
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ouro);
+      color: var(--tinta);
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 12px
+    }
+
+    .download-link:hover {
+      opacity: .9
+    }
+
+    /* ---------- RODAPÉ PADRONIZADO ---------- */
+    footer {
+      background: var(--tinta);
+      color: #9DB0C6;
+      padding: 36px 0;
+      font-size: 14px;
+      margin-top: 40px
+    }
+
+    footer strong {
+      color: var(--branco)
+    }
+
+    @media(max-width:640px) {
+      .cat-grid {
+        grid-template-columns: 1fr
+      }
+
+      .card {
+        padding: 22px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+    }
+  </style> --->
+</head>
+
+<body>
+
+  <!-- HEADER E NAV PADRONIZADOS IDÊNTICOS AO INDEX -->
+  <header>
+    <div class="container">
+      <h1>32ª SEMANA DO CONTADOR DE CIANORTE</h1>
+      <p class="sub">Semana do Contador — Departamento de Ciências Contábeis / UEM</p>
+      <span class="issn">ISBN</span>
+      <div class="datas-topo">
+        <div>
+          <div class="rotulo">Evento</div>
+          <div class="valor">03 a 06 · nov · 2026</div>
+        </div>
+        <div>
+          <div class="rotulo">Local</div>
+          <div class="valor">UEM · Cianorte-PR</div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav aria-label="Navegação">
+    <div class="container">
+      <a href="index.html">Página Inicial</a>
+      <a href="submeter.html">Submeter trabalho</a>
+      <a href="registro.html">Inscrição</a>
+    </div>
+  </nav>
+
+  <!-- ==================== INSTRUÇÕES ==================== -->
+  <section id="instrucoes">
+    <div class="container">
+      <h2>Instruções de Inscrição</h2>
+      <p class="h2-sub">Orientações para confirmação da sua participação no evento.</p>
+      <div class="card">
+        <p><strong>1. Pagamento da Taxa:</strong> <strong><a href="https://fadec.conveniar.com.br/Eventos/Default.aspx">Clique aqui</a></strong> para gerar o boleto para pagamento.
+        </p>
+        <p><strong>2. Comprovante PDF:</strong> Guarde o comprovante bancário em formato <strong>PDF</strong> para
+          anexo.</p>
+        <p style="margin-top:10px"><strong>3. Confirmação:</strong> Após o envio, seu comprovante será analisado. Você
+          receberá o Código de Inscrição para acompanhamento.</p>
+      </div>
+    </div>
+  </section>
+  <section id="registro">
+    <div class="container">
+      <h2>Formulário de Inscrição</h2>
+      <p class="h2-sub">Preencha seus dados pessoais e anexe o comprovante de pagamento em PDF.</p>
+
+      <div class="card">
+        <div id="form-registro">
+          <label for="nome">Nome Completo *</label>
+          <input type="text" id="nome" maxlength="150" required>
+
+          <label for="cpf">CPF *</label>
+          <input type="text" id="cpf" maxlength="14" required>
+
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" maxlength="150" required>
+
+          <label for="classe">Classe / Categoria *</label>
+          <select id="classe" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="Estudante de Graduação">Estudante de Graduação</option>
+            <option value="Estudante de Pós-Graduação">Estudante de Pós-Graduação</option>
+            <option value="Comunidade Externa">Comunidade Externa</option>
+          </select>
+
+          <label for="ra">RA (Registro Acadêmico)</label>
+          <input type="text" id="ra" maxlength="20" placeholder="Apenas para estudantes">
+          <div class="hint">Deixe em branco se for Comunidade Externa.</div>
+
+          <label for="comprovante">Comprovante de Pagamento (PDF) *</label>
+          <input type="file" id="comprovante" accept="application/pdf" required>
+          <p class="hint">Máximo 10 MB. Apenas PDF.</p>
+          <br>
+          <div class="check-linha">
+            <input type="checkbox" id="decl-pagamento">
+            <label for="decl-pagamento" style="margin:0;font-weight:400">Declaro que os dados informados são verdadeiros
+              e anexei o comprovante autêntico. *</label>
+          </div>
+          <button type="button" class="botao" id="btn-enviar-registro" onclick="enviarInscricao()">Enviar
+            Inscrição</button>
+          <div id="resultado-registro"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="categorias">
+  <div class="container">
+    <h2>Inscrição nos Minicursos</h2>
+    <p class="h2-sub">Selecione, no forms abaixo o minicurso desejado.</p>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <a href="https://forms.gle/yNNfDyQL2TY5potB6"><h3>Inscrição nos minicursos</h3></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER PADRONIZADO IDÊNTICO AO INDEX -->
+  <footer>
+    <div class="container">
+      <strong>32ª Semana do Contador de Cianorte — DCC/UEM</strong><br>
+      Universidade Estadual de Maringá · Cianorte, Paraná<br>
+      Dúvidas: semanadocontador@uem.br
+    </div>
+  </footer>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_M1IVFG1Yynvi_aUIpSMlc3blMVT0K0QPFCjHeTNdpd_vogOQeO8iHFNmOr55RuN-8g/exec";
+
+    function lerComprovanteBase64(input) {
+      return new Promise((res, rej) => {
+        const f = input.files[0];
+        if (!f) return rej("Selecione o arquivo PDF.");
+        if (f.type !== "application/pdf") return rej("O comprovante deve ser um arquivo PDF.");
+        if (f.size > 10 * 1024 * 1024) return rej("O arquivo excede 10 MB."); // Correção aplicada aqui
+
+        const r = new FileReader();
+        r.onload = () => res(r.result.split(",")[1]);
+        r.onerror = () => rej("Erro ao ler o arquivo.");
+        r.readAsDataURL(f);
+      });
+    }
+
+    async function enviarInscricao() {
+      const out = document.getElementById("resultado-registro");
+      const nome = document.getElementById("nome").value.trim();
+      const cpf = document.getElementById("cpf").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const classe = document.getElementById("classe").value;
+      const ra = document.getElementById("ra").value.trim();
+      const inputArquivo = document.getElementById("comprovante");
+      const declPagamento = document.getElementById("decl-pagamento").checked;
+
+      // Validação dos campos obrigatórios
+      if (!nome || !cpf || !email || !classe || !inputArquivo.files.length) {
+        out.innerHTML = '<div class="msg-erro">Preencha todos os campos obrigatórios.</div>';
+        return;
+      }
+
+      // Validação dinâmica: obriga RA para estudantes
+      if (classe.includes("Estudante") && !ra) {
+        out.innerHTML = '<div class="msg-erro">O campo RA é obrigatório para estudantes.</div>';
+        return;
+      }
+
+      // Validação da declaração
+      if (!declPagamento) {
+        out.innerHTML = '<div class="msg-erro">É necessário confirmar a declaração de veracidade dos dados.</div>';
+        return;
+      }
+
+      const btn = document.getElementById("btn-enviar-registro");
+      btn.disabled = true;
+      btn.textContent = "Enviando...";
+
+      try {
+        const comprovanteBase64 = await lerComprovanteBase64(inputArquivo);
+        const resp = await fetch(SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" }, // Adicionado para evitar bloqueio CORS
+          body: JSON.stringify({
+            action: "registrar",
+            nome,
+            cpf,
+            email,
+            classe,
+            ra,
+            comprovanteBase64
+          })
+        });
+
+        const dados = await resp.json();
+
+        if (dados.ok) {
+          out.innerHTML = `<div class="msg-ok">Inscrição enviada! Código: <span class="id">${dados.id}</span></div>`;
+
+          // Limpeza completa do formulário
+          document.getElementById("nome").value = "";
+          document.getElementById("cpf").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("classe").value = "";
+          document.getElementById("ra").value = "";
+          document.getElementById("decl-pagamento").checked = false;
+          inputArquivo.value = "";
+        } else {
+          out.innerHTML = `<div class="msg-erro">${dados.erro}</div>`;
+        }
+      } catch (e) {
+        out.innerHTML = `<div class="msg-erro">${typeof e === "string" ? e : "Erro de conexão. Tente novamente."}</div>`;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Enviar Inscrição";
+      }
+    }
+  </script>
+</body>
+
+</html>

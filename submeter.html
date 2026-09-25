@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submeter Trabalho - 32ª Semana do Contador de Cianorte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER PADRONIZADO -->
+<header>
+  <div class="container">
+    <h1>32ª SEMANA DO CONTADOR DE CIANORTE</h1>
+    <p class="sub">Semana do Contador — Departamento de Ciências Contábeis / UEM</p>
+    <span class="issn">ISBN</span>
+    <div class="datas-topo">
+      <div><div class="rotulo">Evento</div><div class="valor">03 a 06 · nov · 2026</div></div>
+      <div><div class="rotulo">Local</div><div class="valor">UEM · Cianorte-PR</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV PADRONIZADA -->
+<nav aria-label="Navegação">
+  <div class="container">
+    <a href="index.html">Página Inicial</a>
+    <a href="submeter.html">Submeter trabalho</a>
+    <a href="registro.html">Inscrição</a>
+  </div>
+</nav>
+
+<!-- CATEGORIAS -->
+<section id="categorias">
+  <div class="container">
+    <h2>Categorias de participação</h2>
+    <p class="h2-sub">Selecione, no momento da submissão, a categoria correspondente ao seu trabalho.</p>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <h3>Alunos da UEM</h3>
+        <p>Artigos realizados pelos alunos da UEM.</p>
+      </div>
+      <div class="cat-card">
+        <h3>Comunidade Externa</h3>
+        <p>Artigos realizados pela comunidade externa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS TEMÁTICAS -->
+<section id="areas">
+  <div class="container">
+    <h2>Áreas temáticas</h2>
+    <p class="h2-sub">Escolha a área que melhor dialoga com o seu trabalho.</p>
+    <ul class="areas-list">
+      <li><span class="num">1</span><span>Trabalhos de Gestão de Custos Aplicados a Serviços Hospitalares</span></li>
+      <li><span class="num">2</span><span>Trabalhos de Produção Tecnológica em Contabilidade</span></li>
+      <li><span class="num">3</span><span>Trabalhos de Contabilidade Aplicada ao Agronegócio</span></li>
+      <li><span class="num">4</span><span>Trabalhos de Conclusão de Curso</span></li>
+      <li><span class="num">5</span><span>Outras modalidades / outros trabalhos na área Contábil</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- NORMAS DE SUBMISSÃO -->
+<section id="normas">
+  <div class="container">
+    <h2>Normas de submissão</h2>
+    <p class="h2-sub">Leia com atenção antes de enviar o trabalho.</p>
+    <div class="card">
+      <p><strong>Modalidade:</strong> Artigo Completo, com extensão entre 5 (cinco) e 16 (dezesseis) páginas.</p>
+      <p style="margin-top:12px"><strong>Formato do arquivo:</strong> PDF, com no máximo 10 MB.</p>
+      <p style="margin-top:12px"><strong>Template:</strong> utilize o modelo oficial de formatação para preparar o seu artigo e os slides.</p>
+      <a class="download-link" href="Modelo de artigo.docx" download>⬇ Baixar template de submissão (.docx)</a>
+      <a class="download-link" href="Modelo de slide.pptx" download>⬇ Baixar template de apresentação (.pptx)</a>
+      <p style="margin-top:12px"><strong>Publicação:</strong> os trabalhos aprovados e apresentados no evento serão publicados nos Anais da 32ª Semana do Contador de Cianorte (ISBN).</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO DE SUBMISSÃO -->
+<section id="submeter">
+  <div class="container">
+    <h2>Submeter trabalho</h2>
+    <p class="h2-sub">Preencha os dados abaixo. Após o envio, você receberá um ID de acompanhamento por e-mail.</p>
+
+    <div class="card">
+      <div id="form-submissao">
+        <label for="categoria">Categoria *</label>
+        <select id="categoria" required>
+          <option value="">Selecione…</option>
+          <option>UEM</option>
+          <option>Comunidade Externa</option>
+        </select>
+
+        <label for="area">Área temática *</label>
+        <select id="area" required>
+          <option value="">Selecione…</option>
+          <option>1. Trabalhos de Gestão de Custos Aplicados a Serviços Hospitalares</option>
+          <option>2. Trabalhos de Produção Tecnológica em Contabilidade</option>
+          <option>3. Trabalhos de Contabilidade Aplicada ao Agronegócio</option>
+          <option>4. Trabalhos de Conclusão de Curso</option>
+          <option>5. Outras modalidades / Outros trabalhos na área contábil</option>
+        </select>
+
+        <label for="titulo">Título do trabalho *</label>
+        <input type="text" id="titulo" maxlength="300" required>
+
+        <label for="resumo">Resumo *</label>
+        <textarea id="resumo" maxlength="2000" required></textarea>
+        <p class="hint">Cole aqui o resumo do trabalho (até 2.000 caracteres).</p>
+
+        <label>Autores *</label>
+        <p class="hint" style="margin-bottom:6px">O primeiro autor será o contato principal e receberá as comunicações do evento.</p>
+        <div id="autores"></div>
+        <button type="button" class="botao-sec" onclick="adicionarAutor()">+ Adicionar autor</button>
+
+        <label for="arquivo">Arquivo do trabalho (PDF) *</label>
+        <input type="file" id="arquivo" accept="application/pdf" required>
+        <p class="hint">Máximo 10 MB. Apenas PDF.</p>
+
+        <div class="check-linha">
+          <input type="checkbox" id="decl-normas">
+          <label for="decl-normas" style="margin:0;font-weight:400">Declaro estar ciente das normas de submissão da 32ª Semana do Contador de Cianorte. *</label>
+        </div>
+        <div class="check-linha">
+          <input type="checkbox" id="decl-normas2">
+          <label for="decl-normas2" style="margin:0;font-weight:400">Declaro que o trabalho é original, que todas as fontes foram citadas e que estou ciente que a identificação de plágio resultará na rejeição do trabalho. *</label>
+        </div>
+        <div class="check-linha">
+          <input type="checkbox" id="decl-normas3">
+          <label for="decl-normas3" style="margin:0;font-weight:400">Declaro que as ferramentas de Inteligência Artificial (se utilizadas) serviram apenas para suporte linguístico ou técnico, sem substituir a autoria humana. *</label>
+        </div>
+        <br>
+        <button type="button" class="botao" id="btn-enviar" onclick="enviarSubmissao()">Enviar trabalho</button>
+        <div id="resultado-submissao"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER PADRONIZADO -->
+<footer>
+  <div class="container">
+    <strong>32ª Semana do Contador de Cianorte — DCC/UEM</strong><br>
+    Universidade Estadual de Maringá · Cianorte, Paraná<br>
+    Dúvidas: semanadocontador@uem.br
+  </div>
+</footer>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_M1IVFG1Yynvi_aUIpSMlc3blMVT0K0QPFCjHeTNdpd_vogOQeO8iHFNmOr55RuN-8g/exec";
+
+/* ---------- AUTORES ---------- */
+let numAutores = 0;
+function adicionarAutor() {
+  numAutores++;
+  const div = document.createElement("div");
+  div.className = "autor-bloco";
+  div.innerHTML =
+    '<span class="tag">Autor ' + numAutores + (numAutores === 1 ? " · contato" : "") + '</span>' +
+    (numAutores > 1 ? '<button type="button" class="remover-autor" onclick="this.parentElement.remove()">remover</button>' : '') +
+    '<label>Nome completo *</label><input type="text" class="a-nome" maxlength="120">' +
+    '<label>E-mail *</label><input type="email" class="a-email" maxlength="120">' +
+    '<label>Instituição *</label><input type="text" class="a-inst" maxlength="160" placeholder="ex.: UEM">';
+  document.getElementById("autores").appendChild(div);
+}
+adicionarAutor();
+
+function coletarAutores() {
+  const blocos = document.querySelectorAll(".autor-bloco");
+  const lista = [];
+  for (const b of blocos) {
+    const nome = b.querySelector(".a-nome").value.trim();
+    const email = b.querySelector(".a-email").value.trim();
+    const inst = b.querySelector(".a-inst").value.trim();
+    if (!nome || !email || !inst) return null;
+    lista.push({ nome, email, instituicao: inst });
+  }
+  return lista.length ? lista : null;
+}
+
+/* ---------- ARQUIVO ---------- */
+function lerArquivoBase64(input) {
+  return new Promise((res, rej) => {
+    const f = input.files[0];
+    if (!f) return rej("Selecione o arquivo PDF.");
+    if (f.type !== "application/pdf") return rej("O arquivo deve ser PDF.");
+    if (f.size > 10 * 1024 * 1024) return rej("O arquivo excede 10 MB.");
+    const r = new FileReader();
+    r.onload = () => res(r.result.split(",")[1]);
+    r.onerror = () => rej("Falha ao ler o arquivo.");
+    r.readAsDataURL(f);
+  });
+}
+
+/* ---------- SUBMISSÃO INTEGRADA COM APPS SCRIPT UNIFICADO ---------- */
+async function enviarSubmissao() {
+  const out = document.getElementById("resultado-submissao");
+  out.innerHTML = "";
+  const categoria = document.getElementById("categoria").value;
+  const area = document.getElementById("area").value;
+  const titulo = document.getElementById("titulo").value.trim();
+  const resumo = document.getElementById("resumo").value.trim();
+  const autores = coletarAutores();
+
+  if (!categoria || !area || !titulo || !resumo || !autores) {
+    out.innerHTML = '<div class="msg-erro">Preencha todos os campos obrigatórios (incluindo nome, e-mail e instituição de cada autor).</div>';
+    return;
+  }
+  if (!document.getElementById("decl-normas").checked || !document.getElementById("decl-normas2").checked || !document.getElementById("decl-normas3").checked){
+    out.innerHTML = '<div class="msg-erro">É necessário aceitar todas as declarações e normas para enviar.</div>';
+    return;
+  }
+
+  const btn = document.getElementById("btn-enviar");
+  btn.disabled = true; 
+  btn.textContent = "Enviando… aguarde";
+
+  try {
+    const arquivoBase64 = await lerArquivoBase64(document.getElementById("arquivo"));
+    const resp = await fetch(SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        action: "submeter",
+        categoria,
+        area,
+        titulo,
+        resumo,
+        autores,
+        arquivoBase64
+      })
+    });
+    const dados = await resp.json();
+    if (dados.ok) {
+      out.innerHTML =
+        '<div class="msg-ok">Trabalho enviado com sucesso! Guarde seu ID:' +
+        '<span class="id">' + dados.id + '</span>' +
+        'Uma confirmação foi enviada ao e-mail do primeiro autor. Use o ID para consultar o status na página inicial.</div>';
+      
+      // Limpa formulário após o sucesso
+      document.getElementById("form-submissao").querySelectorAll("input,select,textarea").forEach(el => {
+        if (el.type === "checkbox") el.checked = false;
+        else if (el.type !== "button") el.value = "";
+      });
+    } else {
+      out.innerHTML = '<div class="msg-erro">' + (dados.erro || "Erro ao enviar.") + '</div>';
+    }
+  } catch (e) {
+    out.innerHTML = '<div class="msg-erro">' + (typeof e === "string" ? e : "Erro de conexão. Verifique sua internet e tente novamente.") + '</div>';
+  } finally {
+    btn.disabled = false; 
+    btn.textContent = "Enviar trabalho";
+  }
+}
+</script>
+</body>
+</html>
