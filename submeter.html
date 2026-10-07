@@ -73,7 +73,7 @@
     <p class="h2-sub">Leia com atenção antes de enviar o trabalho.</p>
     <div class="card">
       <p><strong>Modalidade:</strong> Artigo Completo, com extensão entre 5 (cinco) e 16 (dezesseis) páginas.</p>
-      <p style="margin-top:12px"><strong>Formato do arquivo:</strong> DOCX, com no máximo 10 MB.</p>
+      <p style="margin-top:12px"><strong>Formato do arquivo:</strong> DOCX, com no máximo 05 MB.</p>
       <p style="margin-top:12px"><strong>Template:</strong> utilize o modelo oficial de formatação para preparar o seu artigo e os slides.</p>
       <a class="download-link" href="Modelo de artigo.docx" download>⬇ Baixar template de submissão (.docx)</a>
       <a class="download-link" href="Modelo de slide.pptx" download>⬇ Baixar template de apresentação (.pptx)</a>
@@ -121,7 +121,7 @@
 
         <label for="arquivo">Arquivo do trabalho (DOCX) *</label>
         <input type="file" id="arquivo" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
-        <p class="hint">Máximo 10 MB. Apenas DOCX.</p>
+        <p class="hint">Máximo 05 MB. Apenas DOCX.</p>
 
         <div class="check-linha">
           <input type="checkbox" id="decl-normas">
@@ -194,7 +194,8 @@ function lerArquivoBase64(input) {
     if (!f) return rej("Selecione o arquivo DOCX.");
     // Checagem pela extensão é mais segura entre diferentes sistemas operacionais para arquivos Office
     if (!f.name.toLowerCase().endsWith(".docx")) return rej("O arquivo deve ser DOCX."); 
-    if (f.size > 10 * 1024 * 1024) return rej("O arquivo excede 10 MB.");
+    //if (f.size > 10 * 1024 * 1024) return rej("O arquivo excede 10 MB.");
+    if (f.size > 5 * 1024 * 1024) return rej("O arquivo excede 05 MB.");
     const r = new FileReader();
     r.onload = () => res(r.result.split(",")[1]);
     r.onerror = () => rej("Falha ao ler o arquivo.");

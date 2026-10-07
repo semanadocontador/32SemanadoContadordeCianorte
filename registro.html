@@ -519,7 +519,7 @@
 
           <label for="comprovante">Comprovante de Pagamento (PDF) *</label>
           <input type="file" id="comprovante" accept="application/pdf" required>
-          <p class="hint">Máximo 10 MB. Apenas PDF.</p>
+          <p class="hint">Máximo 05 MB. Apenas PDF.</p>
           <br>
           <div class="check-linha">
             <input type="checkbox" id="decl-pagamento">
@@ -558,7 +558,7 @@
         const f = input.files[0];
         if (!f) return rej("Selecione o arquivo PDF.");
         if (f.type !== "application/pdf") return rej("O comprovante deve ser um arquivo PDF.");
-        if (f.size > 10 * 1024 * 1024) return rej("O arquivo excede 10 MB."); // Correção aplicada aqui
+        if (f.size > 5 * 1024 * 1024) return rej("O arquivo excede 05 MB."); // Correção aplicada aqui
 
         const r = new FileReader();
         r.onload = () => res(r.result.split(",")[1]);
