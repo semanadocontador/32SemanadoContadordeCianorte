@@ -73,7 +73,7 @@
     <p class="h2-sub">Leia com atenção antes de enviar o trabalho.</p>
     <div class="card">
       <p><strong>Modalidade:</strong> Artigo Completo, com extensão entre 5 (cinco) e 16 (dezesseis) páginas.</p>
-      <p style="margin-top:12px"><strong>Formato do arquivo:</strong> PDF, com no máximo 10 MB.</p>
+      <p style="margin-top:12px"><strong>Formato do arquivo:</strong> DOCX, com no máximo 10 MB.</p>
       <p style="margin-top:12px"><strong>Template:</strong> utilize o modelo oficial de formatação para preparar o seu artigo e os slides.</p>
       <a class="download-link" href="Modelo de artigo.docx" download>⬇ Baixar template de submissão (.docx)</a>
       <a class="download-link" href="Modelo de slide.pptx" download>⬇ Baixar template de apresentação (.pptx)</a>
@@ -119,9 +119,9 @@
         <div id="autores"></div>
         <button type="button" class="botao-sec" onclick="adicionarAutor()">+ Adicionar autor</button>
 
-        <label for="arquivo">Arquivo do trabalho (PDF) *</label>
-        <input type="file" id="arquivo" accept="application/pdf" required>
-        <p class="hint">Máximo 10 MB. Apenas PDF.</p>
+        <label for="arquivo">Arquivo do trabalho (DOCX) *</label>
+        <input type="file" id="arquivo" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+        <p class="hint">Máximo 10 MB. Apenas DOCX.</p>
 
         <div class="check-linha">
           <input type="checkbox" id="decl-normas">
@@ -188,8 +188,12 @@ function coletarAutores() {
 function lerArquivoBase64(input) {
   return new Promise((res, rej) => {
     const f = input.files[0];
-    if (!f) return rej("Selecione o arquivo PDF.");
-    if (f.type !== "application/pdf") return rej("O arquivo deve ser PDF.");
+    // if (!f) return rej("Selecione o arquivo PDF.");
+    // if (f.type !== "application/pdf") return rej("O arquivo deve ser PDF.");
+    // if (f.size > 10 * 1024 * 1024) return rej("O arquivo excede 10 MB.");
+    if (!f) return rej("Selecione o arquivo DOCX.");
+    // Checagem pela extensão é mais segura entre diferentes sistemas operacionais para arquivos Office
+    if (!f.name.toLowerCase().endsWith(".docx")) return rej("O arquivo deve ser DOCX."); 
     if (f.size > 10 * 1024 * 1024) return rej("O arquivo excede 10 MB.");
     const r = new FileReader();
     r.onload = () => res(r.result.split(",")[1]);
