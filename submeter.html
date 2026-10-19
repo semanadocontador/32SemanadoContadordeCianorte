@@ -83,7 +83,7 @@
 </section>
 
 <!-- FORMULÁRIO DE SUBMISSÃO -->
-<section id="submeter">
+<!-- <section id="submeter">
   <div class="container">
     <h2>Submeter trabalho</h2>
     <p class="h2-sub">Preencha os dados abaixo. Após o envio, você receberá um ID de acompanhamento por e-mail.</p>
@@ -141,6 +141,17 @@
       </div>
     </div>
   </div>
+</section> --->
+<!-- AVISO DE ENCERRAMENTO -->
+<section id="submeter">
+  <div class="container">
+    <h2>Submeter trabalho</h2>
+    <div class="card" style="text-align: center; padding: 40px 20px;">
+      <h3 style="color: #d93025; margin-bottom: 10px;">Submissões Encerradas</h3>
+      <p>O prazo para a submissão de trabalhos na 32ª Semana do Contador de Cianorte já foi encerrado.</p>
+      <p>Agradecemos a todos que participaram!</p>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER PADRONIZADO -->
@@ -153,9 +164,9 @@
 </footer>
 
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzW8_iEJt5ubLozWt9yFX-xvOyPUynnAjL249JZ4EJXSyOd_7Y-egoFu5Z4Dwg5lYqYSA/exec";
+/*const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzW8_iEJt5ubLozWt9yFX-xvOyPUynnAjL249JZ4EJXSyOd_7Y-egoFu5Z4Dwg5lYqYSA/exec";
 
-/* ---------- AUTORES ---------- */
+// ---------- AUTORES ----------
 let numAutores = 0;
 function adicionarAutor() {
   numAutores++;
@@ -184,7 +195,7 @@ function coletarAutores() {
   return lista.length ? lista : null;
 }
 
-/* ---------- ARQUIVO ---------- */
+// ---------- ARQUIVO ---------- 
 function lerArquivoBase64(input) {
   return new Promise((res, rej) => {
     const f = input.files[0];
@@ -203,7 +214,7 @@ function lerArquivoBase64(input) {
   });
 }
 
-/* ---------- SUBMISSÃO INTEGRADA COM APPS SCRIPT UNIFICADO ---------- */
+// ---------- SUBMISSÃO INTEGRADA COM APPS SCRIPT UNIFICADO ----------
 async function enviarSubmissao() {
   const out = document.getElementById("resultado-submissao");
   out.innerHTML = "";
@@ -262,7 +273,7 @@ async function enviarSubmissao() {
     btn.disabled = false; 
     btn.textContent = "Enviar trabalho";
   }
-}
-</script>
+}*/
+</script> 
 </body>
 </html>
