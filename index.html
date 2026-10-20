@@ -110,8 +110,8 @@ async function consultarStatusSubmissao() {
     const resp = await fetch(SCRIPT_URL + "?action=status&id=" + encodeURIComponent(id));
     const d = await resp.json();
     if (!d.ok) { out.innerHTML = '<div class="msg-erro">' + d.erro + '</div>'; return; }
-    //out.innerHTML = `<div class="status-caixa"><strong>${d.id}</strong> — ${d.titulo}<br>Status: <strong>${d.status}</strong></div>`;
-    out.innerHTML = `<div class="status-caixa"><strong>${d.id}</strong> — ${d.titulo}<br>Status: <strong>${d.status}</strong>${d.dataResultado ? `<br>Data de Aprovação: <strong>${d.dataResultado}</strong>` : ''}</div>`;
+    out.innerHTML = `<div class="status-caixa"><strong>${d.id}</strong> — ${d.titulo}<br>Status: <strong>${d.status}</strong></div>`;
+    //out.innerHTML = `<div class="status-caixa"><strong>${d.id}</strong> — ${d.titulo}<br>Status: <strong>${d.status}</strong>${d.dataResultado ? `<br>Data de Aprovação: <strong>${d.dataResultado}</strong>` : ''}</div>`;
   } catch (e) { out.innerHTML = '<div class="msg-erro">Erro na consulta.</div>'; }
 }
 
